@@ -11,14 +11,31 @@ const LOG_EVENT_MONSTER_ATTACK = 'MONSTER_ATTACK';
 const LOG_EVENT_PLAYER_HEAL = 'PLAYER_HEAL';
 const LOG_EVENT_GAME_OVER = 'GAME_OVER';
  
-const enteredValue = prompt("Maximum life for you and the monster.", "100");
-
-let chosenMaxLife = parseInt(enteredValue);
 let battleLog = [];
+let lastLoggedEntry;
 
-if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) {
-    chosenMaxLife = 100;
+function getMaxLifeValues() {
+    const enteredValue = prompt("Maximum life for you and the monster.", "100");
+
+    const parsedValue = parseInt(enteredValue);
+    if (isNaN(parsedValue) || parsedValue <= 0) {
+        throw {
+            message: "Invalid user input, not a number!"
+        }
+    }
+    return parsedValue;
 }
+
+let chosenMaxLife;
+
+try {
+    chosenMaxLife = getMaxLifeValues();
+} catch (error) {
+    console.log(error);
+    chosenMaxLife = 100;
+    alert("You entered something wrong, default value of 100 was used.");
+    // throw error;
+} 
 
 let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
@@ -191,8 +208,15 @@ function printLogHandler() {
         console.log('-------');
     }
     let j = 0;
-    do {
-        console.log(j);
+    outerWhile: do {
+        console.log("Outer", j);
+        innerFor: for (let k = 0; k < 5; k++) {
+            if (k === 3) {
+                break outerWhile;
+                //continue outerWhile; //dangerous! => Infinite loop!
+            }
+            console.log("Inner", k);
+        }
         j++;
     } while (j < 3);
    /*  for (let i = 10; i > 0; i--) {
@@ -203,9 +227,13 @@ function printLogHandler() {
     } */
     let i = 0;
     for (const logEntry of battleLog) {
-      console.log(`#${i}`);
-      for (const key in logEntry) {
-        console.log(`${key} => ${logEntry[key]}`);
+        if (!lastLoggedEntry && lastLoggedEntry !== 0 || lastLoggedEntry < i) {
+            console.log(`#${i}`);
+            for (const key in logEntry) {
+              console.log(`${key} => ${logEntry[key]}`);
+        }
+        lastLoggedEntry = i;
+        break;
       }
       i++;
     }
@@ -215,11 +243,3 @@ attackBtn.addEventListener('click', attackHandler);
 strongAttackBtn.addEventListener('click', strongAttackHandler);
 healBtn.addEventListener('click', healPlayerHandler);
 logBtn.addEventListener('click', printLogHandler);
-
-let sum = 0;
-for (let i = 0; i < 3; i++) {
-    for (let j = 5; j > 2; j--) {
-        sum = j + i;
-    }
-}
-console.log(sum)
