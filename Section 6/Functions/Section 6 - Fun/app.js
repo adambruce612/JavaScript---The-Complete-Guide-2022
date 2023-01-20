@@ -1,25 +1,56 @@
 const startGameBtn = document.getElementById('start-game-btn');
 
-//Only running this function once so creating an anonymous function works better.
-// const start = function() {
-//     console.log("Game is starting...");
-// };
+const ROCK = 'ROCK'
+const PAPER = 'PAPER'
+const SCISSORS = 'SCISSORS'
+const DEFAULT_USER_CHOICE = ROCK;
+const RESULT_DRAW = 'Draw';
+const  RESULT_PLAYER_WINS = 'PLAYER WINS';
+const RESULT_COMPUTER_WINS = 'COMPUTER WINS';
 
-// const start = function() {
-//     console.log('Game is starting...');
-// };
 
-// const person = {
-    // name: 'Max',
-//  greet: function greet() {
-//         console.log('Hello there!');
-//     }
-// };
 
-// person.greet();
+let gameIsRunning = false;
 
-// console.dir(startGame);
+const getPlayerChoice = function() {
+    const selection = prompt(`${ROCK}, ${PAPER}, or ${SCISSORS}?`, '').toUpperCase();
+    if (selection !== ROCK && selection !== PAPER && selection !== SCISSORS) {
+        alert(`Invalid choice! We choose ${DEFAULT_USER_CHOICE} for you!`)
+        return DEFAULT_USER_CHOICE
+    }
+    return selection;
+}
+
+const getComputerChoice = function() {
+    const randomValue = Math.random();
+    if (randomValue < 0.34) {
+        return ROCK;
+    } else if (randomValue < 0.67) {
+        return PAPER;
+    } else {
+        return SCISSORS;
+    }
+};
+
+const getWinner = function(cChoice, pChoice) {
+    if (cChoice === pChoice) {
+        return RESULT_DRAW
+    } else if (cChoice === ROCK && pChoice === PAPER || cChoice === PAPER && pChoice === SCISSORS || cChoice === SCISSORS && pChoice === ROCK) {
+        return RESULT_PLAYER_WINS
+    } else {
+        RESULT_COMPUTER_WINS;
+    }
+
+}
 
 startGameBtn.addEventListener('click', function startGame(){
+    if (gameIsRunning) {
+        return;
+    }
+    gameIsRunning = true;
     console.log('Game is starting...');
+    const playerChoice = getPlayerChoice();
+    console.log(playerSelection);
+    const computerChoice = getComputerChoice();
+    const winner = getWinner(computerChoice, playerChoice)
 });
