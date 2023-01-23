@@ -32,16 +32,25 @@ const getComputerChoice = function() {
     }
 };
 
-const getWinner = function(cChoice, pChoice) {
-    if (cChoice === pChoice) {
-        return RESULT_DRAW
-    } else if (cChoice === ROCK && pChoice === PAPER || cChoice === PAPER && pChoice === SCISSORS || cChoice === SCISSORS && pChoice === ROCK) {
-        return RESULT_PLAYER_WINS
-    } else {
-        RESULT_COMPUTER_WINS;
-    }
+//Arrow functions shorten amount of code needed.
+// const add = (a, b) => a + b;
+// const add2 = function(a, b) {
+//     return a+b;
+// }
 
-}
+const getWinner = (cChoice, pChoice)  => 
+     cChoice === pChoice ? RESULT_DRAW : (cChoice === ROCK && pChoice === PAPER)
+     || (cChoice === PAPER && pChoice === SCISSORS)
+     || (cChoice === SCISSORS && pChoice === ROCK) ? RESULT_PLAYER_WINS : RESULT_COMPUTER_WINS;
+    // if (cChoice === pChoice) {
+    //     return RESULT_DRAW
+    // } else if (cChoice === ROCK && pChoice === PAPER || cChoice === PAPER && pChoice === SCISSORS || cChoice === SCISSORS && pChoice === ROCK) {
+    //     return RESULT_PLAYER_WINS
+    // } else {
+    //     RESULT_COMPUTER_WINS;
+    // }
+
+
 
 startGameBtn.addEventListener('click', function startGame(){
     if (gameIsRunning) {
@@ -53,4 +62,14 @@ startGameBtn.addEventListener('click', function startGame(){
     console.log(playerSelection);
     const computerChoice = getComputerChoice();
     const winner = getWinner(computerChoice, playerChoice)
+    let message = `You picked ${playerChoice}, computer picked ${computerChoice}, therefore you `;
+    if (winner === RESULT_DRAW) {
+        message = message + 'had a draw.';
+    } else if (winner === RESULT_PLAYER_WINS) {
+        message = message + 'won.';
+    } else {
+        message = message + 'lost.';
+    }
+    alert(message);
+    gameIsRunning = false;
 });
