@@ -24,52 +24,58 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
     console.log(logEntries);
 }
 
-function calculate(operation) {
+function calculateResult(calculationType) {
     const enteredNumber = getUserNumberInput();
-    // if (calculationType === 'ADD' || calculationType === 'SUBTRACT' || calculationType === 'MULTIPLY' || calculationType === 'DIVIDE') {
-    const initialResult = currentResult;
-    let operator;
-    if (operation === 'ADD') {
-        currentResult += enteredNumber;
-        operator = "+";
-    } else if (operation === 'SUBTRACT') {
-        currentResult -= enteredNumber;
-        operator = "-"
-    } else if (operation === 'MULTIPLY') {
-        currentResult *= enteredNumber;
-        operator = "*"
-    } else if (operation === 'DIVIDE') { //could use else since all other options are used previously
-        currentResult /= enteredNumber;
-        operator = "/"
+    if (calculationType !== 'ADD' && calculationType !=='SUBTRACT' && calculationType !== 'MULTIPLY' && calculationType !== 'DIVIDE' || !enteredNumber) {
+        return;
     }
-    createAndWriteOutput(operator, initialResult, enteredNumber);
-    writeToLog(operation, initialResult, enteredNumber, currentResult);
+
+    // if (calculationType === 'ADD' || calculationType === 'SUBTRACT' || calculationType === 'MULTIPLY' || calculationType === 'DIVIDE') {
+
+    const initialResult = currentResult;
+    let mathOperator;
+    if (calculationType === 'ADD') {
+        currentResult += enteredNumber;
+        mathOperator = "+";
+    } else if (calculationType === 'SUBTRACT') {
+        currentResult -= enteredNumber;
+        mathOperator = "-"
+    } else if (calculationType === 'MULTIPLY') {
+        currentResult *= enteredNumber;
+        mathOperator = "*"
+    } else if (calculationType === 'DIVIDE') { //could use else since all other options are used previously
+        currentResult /= enteredNumber;
+        mathOperator = "/"
+    }
+
+    createAndWriteOutput(mathOperator, initialResult, enteredNumber);
+    writeToLog(calculationType, initialResult, enteredNumber, currentResult);
 // }
 }
 
+
+
 //Known as a pure function
-// function add() {
-//     calculateResult('ADD');
-// }
+function add() {
+    calculateResult('ADD');
+}
 
-// function subtract() {
-//    calculateResult('SUBTRACT');
-// }
+function subtract() {
+   calculateResult('SUBTRACT');
+}
 
-// function multiply() {
-//     calculateResult('MULTIPLY'); 
-// }
+function multiply() {
+    calculateResult('MULTIPLY'); 
+}
 
-// function divide() {
-//     calculateResult('DIVIDE');
-// }
+function divide() {
+    calculateResult('DIVIDE');
+}
 
-
-addBtn.addEventListener('click', calculate.bind(this, 'ADD'));
-subtractBtn.addEventListener('click', calculate.bind(this, 'SUBTRACT'));
-multiplyBtn.addEventListener('click', calculate.bind(this, 'MULTIPLY'));
-divideBtn.addEventListener('click', calculate.bind(this, 'DIVIDE'));
-
+addBtn.addEventListener('click', add);
+subtractBtn.addEventListener('click', subtract);
+multiplyBtn.addEventListener('click', multiply);
+divideBtn.addEventListener('click', divide);
 
 
 
