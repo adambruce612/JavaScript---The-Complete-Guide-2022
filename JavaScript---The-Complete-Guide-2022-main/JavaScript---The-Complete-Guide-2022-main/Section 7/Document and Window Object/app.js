@@ -46,3 +46,24 @@ const ul2 = document.body.firstElementChild.nextElementSibling;
 //more straightfoward way of selecting the same thing
 const firstLi = ul.firstElementChild;
 console.log(firstLi);
+
+//Video 160
+const section = document.querySelector('section');
+// const firstLi = ul.firstElementChild;
+section.style.backgroundColor = 'green';
+
+// const section = document.querySelector('section');
+const button = document.querySelector('button');
+// section.style.backgroundColor = 'blue';
+section.className = 'red-bg';
+
+button.addEventListener('click', () => {
+    // if (section.className === 'red-bg visible') {
+    //     section.className = 'red-bg invisible'
+    // } else {
+    // section.className = 'red-bg visible';
+    // }
+
+    section.classList.toggle('visible');
+    section.classList.toggle('invisible');
+})
