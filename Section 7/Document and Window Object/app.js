@@ -12,7 +12,6 @@ li.textContent = li.textContent + ' (Changed!)';
 
 const body = document.body;
 
-
 //Selecting elements this way will live update if new elements are added. 
 const listItemElements = document.getElementsByTagName('li');
 //Will select all elements with li tag - does not live update
@@ -21,5 +20,70 @@ const listItemElements = document.getElementsByTagName('li');
 for (const listItemEl of listItemElements) {
     console.dir(listItemEl);
 }
+
+const ul = document.querySelector('ul');
+console.log(ul.children); //only includes element nodes
+console.log(ul.children[1]); //selects second element node (second li in this case)
+console.log(ul.childNodes); //includes all nodes including text nodes
+console.log(ul.firstElementChild, ul.lastElementChild); //faster than using query selector
+
+//Video 157 - each element or node can only have one parent
+const liFirst = document.querySelector('li');
+console.log(liFirst.parentElement); //select ul
+liFirst.closest('body'); //selects closest ancestor element
+//query selector would be used for descendant elements
+//only element nodes can have parent nodes
+document.documentElement.parentNode //only exception to the rule
+
+//This gets access to the header
+const ul1 = li.parentElement;
+ul.previousElementSibling // gets us previous element sibling node
+//previousElement will grab next sibling node (includes text nodes)
+
+//hard to tell what you are selecting - if you add additional HTML the selector is no longer valid
+const ul2 = document.body.firstElementChild.nextElementSibling;
+//more straightfoward way of selecting the same thing
+const firstLi = ul.firstElementChild;
+console.log(firstLi);
+
+//Video 160
+const section = document.querySelector('section');
+// const firstLi = ul.firstElementChild;
+section.style.backgroundColor = 'green';
+
+// const section = document.querySelector('section');
+const button = document.querySelector('button');
+// section.style.backgroundColor = 'blue';
+section.className = 'red-bg';
+
+button.addEventListener('click', () => {
+    // if (section.className === 'red-bg visible') {
+    //     section.className = 'red-bg invisible'
+    // } else {
+    // section.className = 'red-bg visible';
+    // }
+
+    section.classList.toggle('visible');
+    section.classList.toggle('invisible');
+})
+
+section.innerHTML = "<h2>A new title!</h2>"
+
+//Video 162
+const list = document.querySelector('ul');
+list.innerHTML = list.innerHTML + '<li>Item 4</li>';
+const div = document.querySelector('div');
+//innerHTML re-renders all of the content. 
+// use insert adjecent html instead to keep original content https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML
+//insert adjecent html does not give you direct access to the created element
+div.insertAdjacentHTML('beforeend', '<p>Something went wrong!</p>')
+
+//Video 163
+//create element allows you to directly access created element (saves a step from insert adjacent html)
+div.querySelector('p');
+const list163 = document.querySelector('ul');
+const newLi = document.createElement('li'); //must take at least one argument (element)
+list163.appendChild(newLi);
+newLi.textContent = 'Item 4'
 
 
