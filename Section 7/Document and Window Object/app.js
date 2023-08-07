@@ -86,4 +86,31 @@ const newLi = document.createElement('li'); //must take at least one argument (e
 list163.appendChild(newLi);
 newLi.textContent = 'Item 4'
 
+//Video 164 - Inserting DOM Elements
+//You can use the append method to insert text nodes
+//list.append('Some text');
+//Append is not supported by Internet Explorer
+const list164 = document.querySelector('ul');
+//const newli = document.createElement('li'); - already declared in previous video
+newLi.textContent = "Item 4";
+list.append(newLi);
+list.prepend(newLi); //This will append it as the first element (not supported by IE)
+list.lastElementChild.before(newLi); //This will add the item before the currently last item
+list.lastElementChild.after(newLi); //Adds the item after the last element
+list.firstElementChild.replaceWith(newLi); //Replaces the targeted element with the new element
+//Inserting the same element multiple times will only move it - you would need to create new elements to have the new one created
+secondLi.insertAdjacentHTML('afterend', newli); //Has better browser support than before/after.
 
+//Video 165 - Cloning DOM nodes
+const newLi2 = newLi.cloneNode(true); //Accepts a boolean to determine if a deep clone should be done (all descendants will be cloned as well with the deep clone)\
+list.append(newli, newLi2);
+
+//Video 166 - Live Node Lists vs Static Node Lists
+const listItems = list.querySelectorAll('li'); //Will select all list items in the list - is a non-live list.
+const listItems2 = list.getElementsByTagName('li'); //Is a live node list 
+list.append(newLi);
+
+//Video 167 - Removing Elements
+const list167 = document.querySelector('ul');
+list167.remove(); //Not supported by IE
+list167.parentElement.removeChild(list167); //Supported in all browsers
