@@ -27,8 +27,12 @@
 // console.log(personalData[1]);
 
 const hobbies = ['Sports', 'Cooking'];
-hobbies.push('Reading');
-hobbies.unshift('Coding');
-const poppedValue = hobbies.pop();
-hobbies.shift();
+hobbies.push('Reading'); // Adds to the end of the array
+hobbies.unshift('Coding'); // Adds an item to the front of the array
+const poppedValue = hobbies.pop(); // removes the last element
+hobbies.shift(); // Removes an item from the front
+console.log(hobbies);
+
+hobbies[1] = 'Coding';
+hobbies[5] = 'Reading';
 console.log(hobbies);
