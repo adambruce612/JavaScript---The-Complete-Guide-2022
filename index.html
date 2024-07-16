@@ -2,34 +2,152 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Basics</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/styles/app.css" />
-  <script src="assets/scripts/vendor.js" defer></script>
-  <script src="assets/scripts/app.js" defer></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio For Pets</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
-  <header>
-    <h1>The Unconventional Calculator</h1>
-  </header>
+    <div class="wrapper">
+        <nav class="mobile-nav navbar">
+            <div class="collapsed">
+            <a href="#"><img src="images/logo.png" id="mobile-logo" alt="Radio For Pets Logo"></a>
+            <svg id="hamburgerIcon" viewBox="0 0 100 80" width="40" height="40">
+                <rect width="100" height="20"></rect>
+                <rect y="30" width="100" height="20"></rect>
+                <rect y="60" width="100" height="20"></rect>
+            </svg>
+        </div>
+            <div id="mobile-nav-items">
+                <a href="#home" id="mobile-nav-home">Home</a>
+                <a href="#music" id="mobile-nav-music">Music</a>
+                <a href="#tour" id="mobile-nav-tour">Tour</a>
+                <a href="#about" id="mobile-nav-about">About</a>
+                <a href="#contact" id="mobile-nav-contact">Contact</a>
+                <a href="#social-media" id="mobile-nav-connect">Connect</a>
+            </div> 
+        </nav>
+        <nav class="main-nav navbar">
+            <div id="main-nav-items">
+                <a href="#">Home</a>
+                <a href="#music">Music</a>
+                <a href="#tour">Tour</a>
+                <a href="#home"><img src="images/logo.png" id="desktop-logo" alt="Radio For Pets Logo"></a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#social-media">Connect</a>
+            </div>
+        </nav>
 
-  <section id="calculator">
-    <input type="number" id="input-number" />
-    <div id="calc-actions">
-      <button type="button" id="btn-add">+</button>
-      <button type="button" id="btn-subtract">-</button>
-      <button type="button" id="btn-multiply">*</button>
-      <button type="button" id="btn-divide">/</button>
+        <main>
+            <section id="music">
+                <h2>MUSIC</h2>
+                <div class="music-cards">
+                    <div class="music-card">
+                        <img src="images/onehitterwonder.jpg" alt="One Hitter Wonder album artwork">
+                        <div class="music-card-listen-button">
+                        <a href="https://open.spotify.com/album/5uD3QtZGeebMGGuwzSEDuH?si=2NgyOzhPRXCHouffM193iw" class="listenBtn">Listen</a>
+                    </div>
+                    </div>
+                    <div class="music-card">
+                        <img src="images/badyear.png" alt="Billy Block and the Terrible, Horrible, No Good, Very Bad Year album artwork">
+                        <div class="music-card-listen-button">
+                        <a href="listen/badyear/index.html" class="listenBtn">Listen</a>
+                    </div>
+                    </div>
+                </div>
+            </section>
+           <section id="tour">
+                <h2>Tour Dates</h2>
+                <div class="tour-cards">
+                    <!--<div class="tour-card">
+                        <h3>July 12, 2024</h3>
+                            <p>The Depot</p>
+                            <p>200 Dousman Street</p>
+                            <p>Green, WI</p>
+                            <div class="more-info">
+                                <a href="https://www.facebook.com/events/3651085781810811">More Info</a>
+                            </div>
+                    </div>
+                -->
+            </section>  
+            <section class="about">
+                <h2>ABOUT</h2>
+                <p>Since their formation in 2019, Radio For Pets has been bringing you an eclectic blend of emo and pop punk. Based out of Green Bay, Wisconsin, they've been playing
+                    shows, growing their following all across the state. Radio For Pets has had the pleasure of being interviewed by and featured on Devile Radio (97.2FM) out of 
+                    Madison, Wisconsin this past winter. They have also opened for Fox Royale, a nationally touring pop-punk band.
+                </p>
+            </section>
+            <section class="contact">
+                <h2>CONTACT</h2>
+                <p><a href="mailto:booking@radioforpets.com">booking@radioforpets.com</a></p>
+            </section>
+            <section class="social-media">
+                <h2>Connect</h2>
+                <p> <a href="https://facebook.com/radioforpets">
+                    <svg class="icon icon-facebook2">
+                        <use href="#icon-facebook2"></use>
+                    </svg>
+                </a>
+                <a href="https://instagram.com/radioforpets">
+                    <svg class="icon icon-instagram">
+                        <use href="#icon-instagram"></use>
+                    </svg>
+                </a>
+                <a href="https://open.spotify.com/artist/1MTQHlw8T8Jmymp1yXVLnP?si=yJ1p6sMVRJGZVbq1rA77sw">
+                    <svg class="icon icon-spotify">
+                        <use href="#icon-spotify"></use>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/channel/UCO0MD996BL1qZAHQPH3tcfg">
+                    <svg class="icon icon-youtube">
+                        <use href="#icon-youtube"></use>
+                    </svg>
+                </a>
+            </p>
+        </section>
+        </main>
+        <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <symbol id="icon-facebook2" viewBox="0 0 32 32">
+                    <path
+                        d="M29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h13v-14h-4v-4h4v-2c0-3.306 2.694-6 6-6h4v4h-4c-1.1 0-2 0.9-2 2v2h6l-1 4h-5v14h9c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3z">
+                    </path>
+                </symbol>
+                <symbol id="icon-instagram" viewBox="0 0 32 32">
+                    <path
+                        d="M16 2.881c4.275 0 4.781 0.019 6.462 0.094 1.563 0.069 2.406 0.331 2.969 0.55 0.744 0.288 1.281 0.638 1.837 1.194 0.563 0.563 0.906 1.094 1.2 1.838 0.219 0.563 0.481 1.412 0.55 2.969 0.075 1.688 0.094 2.194 0.094 6.463s-0.019 4.781-0.094 6.463c-0.069 1.563-0.331 2.406-0.55 2.969-0.288 0.744-0.637 1.281-1.194 1.837-0.563 0.563-1.094 0.906-1.837 1.2-0.563 0.219-1.413 0.481-2.969 0.55-1.688 0.075-2.194 0.094-6.463 0.094s-4.781-0.019-6.463-0.094c-1.563-0.069-2.406-0.331-2.969-0.55-0.744-0.288-1.281-0.637-1.838-1.194-0.563-0.563-0.906-1.094-1.2-1.837-0.219-0.563-0.481-1.413-0.55-2.969-0.075-1.688-0.094-2.194-0.094-6.463s0.019-4.781 0.094-6.463c0.069-1.563 0.331-2.406 0.55-2.969 0.288-0.744 0.638-1.281 1.194-1.838 0.563-0.563 1.094-0.906 1.838-1.2 0.563-0.219 1.412-0.481 2.969-0.55 1.681-0.075 2.188-0.094 6.463-0.094zM16 0c-4.344 0-4.887 0.019-6.594 0.094-1.7 0.075-2.869 0.35-3.881 0.744-1.056 0.412-1.95 0.956-2.837 1.85-0.894 0.888-1.438 1.781-1.85 2.831-0.394 1.019-0.669 2.181-0.744 3.881-0.075 1.713-0.094 2.256-0.094 6.6s0.019 4.887 0.094 6.594c0.075 1.7 0.35 2.869 0.744 3.881 0.413 1.056 0.956 1.95 1.85 2.837 0.887 0.887 1.781 1.438 2.831 1.844 1.019 0.394 2.181 0.669 3.881 0.744 1.706 0.075 2.25 0.094 6.594 0.094s4.888-0.019 6.594-0.094c1.7-0.075 2.869-0.35 3.881-0.744 1.050-0.406 1.944-0.956 2.831-1.844s1.438-1.781 1.844-2.831c0.394-1.019 0.669-2.181 0.744-3.881 0.075-1.706 0.094-2.25 0.094-6.594s-0.019-4.887-0.094-6.594c-0.075-1.7-0.35-2.869-0.744-3.881-0.394-1.063-0.938-1.956-1.831-2.844-0.887-0.887-1.781-1.438-2.831-1.844-1.019-0.394-2.181-0.669-3.881-0.744-1.712-0.081-2.256-0.1-6.6-0.1v0z">
+                    </path>
+                    <path
+                        d="M16 7.781c-4.537 0-8.219 3.681-8.219 8.219s3.681 8.219 8.219 8.219 8.219-3.681 8.219-8.219c0-4.537-3.681-8.219-8.219-8.219zM16 21.331c-2.944 0-5.331-2.387-5.331-5.331s2.387-5.331 5.331-5.331c2.944 0 5.331 2.387 5.331 5.331s-2.387 5.331-5.331 5.331z">
+                    </path>
+                    <path
+                        d="M26.462 7.456c0 1.060-0.859 1.919-1.919 1.919s-1.919-0.859-1.919-1.919c0-1.060 0.859-1.919 1.919-1.919s1.919 0.859 1.919 1.919z">
+                    </path>
+                </symbol>
+                <symbol id="icon-spotify" viewBox="0 0 32 32">
+                    <path
+                        d="M16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16 16-7.2 16-16-7.119-16-16-16zM23.363 23.119c-0.319 0.481-0.881 0.637-1.363 0.319-3.762-2.319-8.481-2.8-14.081-1.519-0.563 0.163-1.037-0.238-1.2-0.719-0.162-0.563 0.237-1.038 0.719-1.2 6.081-1.363 11.363-0.8 15.519 1.762 0.563 0.238 0.644 0.875 0.406 1.356zM25.281 18.719c-0.4 0.563-1.119 0.8-1.681 0.4-4.319-2.637-10.881-3.438-15.919-1.837-0.638 0.163-1.362-0.163-1.519-0.8-0.162-0.637 0.162-1.363 0.8-1.519 5.838-1.762 13.037-0.881 18 2.163 0.475 0.238 0.719 1.038 0.319 1.594zM25.438 14.238c-5.119-3.037-13.681-3.363-18.563-1.838-0.8 0.238-1.6-0.238-1.838-0.963-0.237-0.8 0.237-1.6 0.963-1.838 5.681-1.681 15.038-1.363 20.962 2.162 0.719 0.4 0.962 1.363 0.563 2.081-0.406 0.556-1.363 0.794-2.087 0.394z">
+                    </path>
+                </symbol>
+                <symbol id="icon-youtube" viewBox="0 0 32 32">
+                    <path
+                        d="M31.681 9.6c0 0-0.313-2.206-1.275-3.175-1.219-1.275-2.581-1.281-3.206-1.356-4.475-0.325-11.194-0.325-11.194-0.325h-0.012c0 0-6.719 0-11.194 0.325-0.625 0.075-1.987 0.081-3.206 1.356-0.963 0.969-1.269 3.175-1.269 3.175s-0.319 2.588-0.319 5.181v2.425c0 2.587 0.319 5.181 0.319 5.181s0.313 2.206 1.269 3.175c1.219 1.275 2.819 1.231 3.531 1.369 2.563 0.244 10.881 0.319 10.881 0.319s6.725-0.012 11.2-0.331c0.625-0.075 1.988-0.081 3.206-1.356 0.962-0.969 1.275-3.175 1.275-3.175s0.319-2.587 0.319-5.181v-2.425c-0.006-2.588-0.325-5.181-0.325-5.181zM12.694 20.15v-8.994l8.644 4.513-8.644 4.481z">
+                    </path>
+                </symbol>
+            </defs>
+        </svg>
     </div>
-  </section>
-  <section id="results">
-    <h2 id="current-calculation">0</h2>
-    <h2>Result: <span id="current-result">0</span></h2>
-  </section>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
